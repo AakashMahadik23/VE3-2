@@ -2,28 +2,39 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-const cors = require("cors");
+ const cors = require("cors");
 require("dotenv").config();
-const authRoutes = require("./routes/authRoutes");
-const taskRoutes = require("./routes/taskRoutes");
-const profileRoutes = require("./routes/profileRoutes");
+ const authRoutes = require("./routes/authRoutes");
+ const taskRoutes = require("./routes/taskRoutes");
+ const profileRoutes = require("./routes/profileRoutes");
 
 app.use(express.json());
-app.use(cors());
+ app.use(cors());
 
-const mongoUrl = process.env.MONGODB_URL;
-mongoose.connect(mongoUrl, err => {
-  if (err) throw err;
-  console.log("Mongodb connected...");
-});
+console.log(typeof process.env.MONGODB_URL);
+const connectToMongoDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB connected...");
+  } catch (error) {
+    console.error("MongoDB connection error:", error.message);
+    process.exit(1); // Exit the process if unable to connect to MongoDB
+  }
+};
 
-app.use("/api/auth", authRoutes);
-app.use("/api/tasks", taskRoutes);
-app.use("/api/profile", profileRoutes);
+connectToMongoDB();
+ app.use("/api/auth", authRoutes);
+ app.use("/api/tasks", taskRoutes);
+ app.use("/api/profile", profileRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "../frontend/build")));
-  app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../frontend/build/index.html")));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
+  );
 }
 
 const port = process.env.PORT || 5000;
