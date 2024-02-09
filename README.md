@@ -1,8 +1,8 @@
 VE3 - Software Developer Intern Task
 
-Task Management Web Application 
+Task Management Web Application  - Aakash Mahadik
 
---- How to Start the project on VS Code :- 
+--- How to Start the project on VS Code ---
 
 Install all the dependencies
 In the root folder of your application type the given below command :- npm run install-all
@@ -17,7 +17,7 @@ Go to http://localhost:3000
 
 
 
---- Backend Api
+--- Backend Api ---
 
 - POST     /api/auth/signup
 - POST     /api/auth/login
@@ -28,14 +28,14 @@ Go to http://localhost:3000
 - DELETE   /api/tasks/:taskId
 - GET      /api/profile
 
---- Frontend
+--- Frontend ---
 - /                 Home Screen
 - /signup           Signup page
 - /login            Login page
 - /tasks/add        Add new task
 - /tasks/:taskId    Edit a task
 
---- npm scripts
+--- npm scripts ---
 
 Inside frontend folder:
 
@@ -47,6 +47,7 @@ npm run dev: Starts backend using nodemon.
 npm start: Starts backend without nodemon.
 
 
---- Git ---
+--- Git Link ---
 
-Git repo link - 
+Git repo link - https://github.com/AakashMahadik23/VE3-2.git
+

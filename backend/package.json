@@ -4,13 +4,14 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "npm i"
   },
   "keywords": [
     "Task manager",
     "Tasks"
   ],
-  "author": "Aayush",
+  "author": "Aakash Mahadik",
   "license": "ISC",
   "description": "The backend part of simple task manager with user authentication",
   "dependencies": {
