@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MERN Task Manager
 
 A MERN application for basic tasks management.
@@ -191,3 +192,6 @@ Inside backend folder:
 
 - Email: aayush5521186@gmail.com
 - Linkedin: https://www.linkedin.com/in/aayush12/
+=======
+# VE3-2
+>>>>>>> 08629e209acd7a00e4112197ea9b16fb71a21e49
